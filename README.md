@@ -4,6 +4,7 @@ Small project to learn how to create a RESTful API.
 ## Setup ##
 Assumptions 
 - Node (npm) is installed
+- MongoDB (mongodb) is installed and running as a background service.
 
 Instructions
 1. Copy the code to a local directory (via cloning, downloading, etc).
