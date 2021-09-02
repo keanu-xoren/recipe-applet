@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Keanu X. Richardson",
-  "license": "ISC",
+  "license": "Unlicense",
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^6.0.4"
