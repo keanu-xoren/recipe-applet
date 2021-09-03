@@ -36,14 +36,36 @@ router.post('/', async (request, response) => {
 });
 
 // updating one
-router.patch('/', (request, response) => {
-
+router.patch('/:id', getRecipe, async (request, response) => {
+    if (request.body.name) {
+        response.recipe.name = request.body.name;
+    }
+    if (request.body.ingredients) {
+        response.recipe.ingredients = request.body.ingredients;
+    }
+    if (request.body.directions) {
+        response.recipe.directions = request.body.directions;
+    }
+    try {
+        const updatedRecipe = await response.recipe.save();
+        response.json(updatedRecipe);
+    }
+    catch (err) {
+        response.status(400).json({ message : err.message });
+    }
 });
 
 // deleting one
-router.delete('/', (request, response) => {
-
+router.delete('/:id', getRecipe, async (request, response) => {
+    try {
+        await response.recipe.remove();
+        response.status(200).json({ message : "Deleted recipe"})
+    }
+    catch (err) {
+        response.status(500).json({ message : err.message })
+    }
 });
+
 
 async function getRecipe(request, response, next) {
     try {
